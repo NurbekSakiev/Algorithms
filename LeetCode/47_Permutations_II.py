@@ -20,3 +20,17 @@ class Solution(object):
                 self.back(res, newList, nums, used)
                 used[i] = False
                 newList.pop()
+
+# Solution #2
+
+    def permuteUnique(self, nums):
+        res = [[]]
+        for n in nums:
+            newList = []
+            for perm in res:
+                for i in range(len(perm) + 1):
+                    newList.append(perm[:i] + [n] + perm[i:])
+                    if i < len(perm) and perm[i] == n:
+                        break
+            res = newList
+        return res

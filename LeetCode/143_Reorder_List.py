@@ -39,4 +39,7 @@ class Solution(object):
         if prev:
             dummy.next = prev
             prev.next = None
+    
+        return
+
         

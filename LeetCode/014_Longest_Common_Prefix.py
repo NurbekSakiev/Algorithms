@@ -7,5 +7,5 @@ class Solution(object):
             pre = strs[0][:i+1]
             for j in range(1,len(strs)):
                 if len(strs[j]) < len(pre) or strs[j][:i+1] != pre:
-                    return pre[:len(pre) - 1]
+                    return pre[:-1]
         return pre

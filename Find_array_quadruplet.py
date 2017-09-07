@@ -16,4 +16,22 @@ def find_array_quadruplet(arr, s):
       d[currSum] = [i,j] if currSum not in d else d[currSum] + [i,j]
      
   return []
+
+#Solution 2
+
+def find_array_quadruplet(arr, s):
+  arr.sort()
+  for i in range(len(arr) - 3):
+    first = arr[i]; last = arr[-1]
+    start, end = i + 1, len(arr) - 2
+    
+    while start < end:
+      currSum = first + last + arr[start] + arr[end]
+      if currSum == s:
+        return [first,arr[start],arr[end], last]
+      elif currSum < s:
+        start += 1
+      else:
+        end -= 1
+  return []
   

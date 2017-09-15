@@ -27,7 +27,7 @@ class Solution(object):
         dic = {0:0}
         maxLen = 0
         for s in input.splitlines():
-            name = s.strip('\t')
+            name = s.strip('\t') 
             depth = len(s) - len(name)
             if '.' in s:
                 maxLen = max(maxLen, dic[depth] + len(name))

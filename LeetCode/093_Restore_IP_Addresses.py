@@ -1,7 +1,7 @@
 class Solution(object):
     def restoreIpAddresses(self, s):
         res = []
-        i = 1
+        i = 1;
         
         while i < 4 and i < len(s) - 2:
             j = i + 1

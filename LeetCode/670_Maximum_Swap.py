@@ -16,3 +16,17 @@ class Solution(object):
                 return int(''.join(s))
             stack.pop()
         return num
+
+# Solution 2 
+
+
+    def maximumSwap(self, num):
+        
+        num_list = map(int, str(num))
+        dic = {x:i for i, x in enumerate(num_list)}
+        for i, x in enumerate(num_list):
+            for k in xrange(9, x, -1):
+                if dic.get(k, None) > i:
+                    num_list[i], num_list[dic[k]] = num_list[dic[k]], num_list[i]
+                    return int(''.join(map(str, num_list)))
+        return num

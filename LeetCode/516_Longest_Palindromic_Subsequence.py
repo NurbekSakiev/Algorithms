@@ -29,3 +29,20 @@ class Solution(object):
                     dp[i][j] = max(dp[i][j-1], dp[i + 1][j])
         
         return dp[0][-1]
+
+# Solution 3
+
+    def longestPalindromeSubseq(self, s):
+  
+        curr = [0 for i in range(len(s))]
+        prev = [0 for i in range(len(s))]
+        
+        for i in range(len(s) - 1, -1, -1):
+            curr[i] = 1
+            for j in range(i + 1, len(s)):
+                if s[i] == s[j]:
+                    curr[j] = prev[j - 1] + 2
+                else:
+                    curr[j] = max(prev[j], curr[j-1])
+            prev = curr[:]
+        return prev[-1]
